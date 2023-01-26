@@ -19,6 +19,13 @@ mongoimport -hlocalhost --port=27017 -dbggdb -cgame --jsonArray json/game.json
 mongoimport -hlocalhost --port=27017 -dbggdb -ccomment --jsonArray json/comment.json
 ```
 
+```
+mongoimport --uri="mongodb://mongo:<password>@<mongohost>:<mongoport>/<mongodb>?authSource=admin" -dbggdb -cgame --jsonArray json/game.json
+
+
+
+```
+
 4. Find all records
 
 ```
