@@ -23,9 +23,12 @@ public class GameRepository {
         public List<Game> search(Integer limit,
                         Integer offset) {
 
-                final Pageable pageableRequest = PageRequest.of(offset, limit);
+                // final Pageable pageableRequest = PageRequest.of(offset, limit);
+                // Query query = new Query();
+                // query.with(pageableRequest);
                 Query query = new Query();
-                query.with(pageableRequest);
+                query.with(Sort.by(Sort.Direction.ASC, "gid")).limit(limit).skip(offset);
+                
 
                 // lambda to find all the mongo game collections
                 return mongoTemplate.find(query, Document.class, "game")
